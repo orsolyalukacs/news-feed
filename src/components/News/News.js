@@ -11,7 +11,8 @@ class News extends Component {
     }
 
     componentDidMount() {
-        const url = API_KEY;
+        const url = `http://newsapi.org/v2/${this.props.news.query}${API_KEY}`
+        console.log(url)
 
         fetch(url)
             .then((response) => {
@@ -34,6 +35,7 @@ class News extends Component {
     render() {
         return (
             <div className='row'>
+                <h2>{this.props.news.title}</h2>
                 {this.renderItems()}
             </div>
         )
